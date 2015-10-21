@@ -8,6 +8,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import jodd.json.JsonSerializer;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -37,6 +38,11 @@ public class Controller implements Initializable {
             phoneField.setText("");
             emailField.setText("");
         }
+
+        JsonSerializer serializer = new JsonSerializer();
+        String s = serializer.serialize(contacts);
+        System.out.println();
+
     }//method addContact
 
     public void removeContact() {
@@ -52,5 +58,7 @@ public class Controller implements Initializable {
             addContact();
             nameField.requestFocus();
         }
-    }
+    }//method onKeyPressed
+
+
 }//class Controller
